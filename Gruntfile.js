@@ -8,6 +8,12 @@
 
 'use strict';
 
+var path = require('path'),
+    LIBRARY_PATH = 'lib',
+    SEL_JAR_PATH = path.resolve(process.cwd(), LIBRARY_PATH, 'selenium-server-standalone-2.44.0.jar'),
+    CHROME_DRIVER_PATH = path.resolve(process.cwd(), LIBRARY_PATH),
+    CHROME_DRIVER_ZIP_PATH = path.resolve(process.cwd(), LIBRARY_PATH, 'chromedriver_win32.zip');
+
 module.exports = function(grunt) {
 
     // Project configuration.
@@ -15,25 +21,19 @@ module.exports = function(grunt) {
         curl: {
             'download-selenium': {
                 src: 'http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar',
-                dest: require('path').resolve(__dirname, 'lib/selenium-server-standalone-2.44.0.jar')
+                dest: SEL_JAR_PATH
             },
 
             'download-chromedriver': {
                 src: 'http://chromedriver.storage.googleapis.com/2.14/chromedriver_win32.zip',
-                dest: require('path').resolve(__dirname, 'lib/chromedriver_win32.zip')
+                dest: CHROME_DRIVER_ZIP_PATH
             }
         },
 
         unzip: {
             'chrome': {
-                src: require('path').resolve(__dirname, 'lib/chromedriver_win32.zip'),
-                dest: require('path').resolve(__dirname, 'lib/')
-            }
-        },
-
-        start_selenium: {
-            options: {
-
+                src: CHROME_DRIVER_ZIP_PATH,
+                dest: CHROME_DRIVER_PATH
             }
         }
     });
@@ -43,20 +43,19 @@ module.exports = function(grunt) {
 
     // Load in `grunt-curl`
     grunt.loadNpmTasks('grunt-curl');
+    // Load in `grunt-zip`
     grunt.loadNpmTasks('grunt-zip');
 
+    grunt.registerTask('start_selenium', function(){
+        if(grunt.file.exists(SEL_JAR_PATH) && grunt.file.exists(CHROME_DRIVER_ZIP_PATH)){
+            grunt.log.ok(['Selenium JAR and chromedriver already exists! Download not required..']);
+            grunt.task.run(['startSelenium']);
+        }
+        else{
+            grunt.log.error(['Selenium JAR and chromedriver doesnt exists! Downloading required files..']);
+            grunt.task.run(['curl:download-selenium', 'curl:download-chromedriver', 'unzip:chrome', 'startSelenium']);
+        }
+    });
 
-    // These plugins provide necessary tasks.
-    //grunt.loadNpmTasks('grunt-contrib-jshint');
-    //grunt.loadNpmTasks('grunt-contrib-clean');
-    //grunt.loadNpmTasks('grunt-contrib-nodeunit');
-
-    // Whenever the "test" task is run, first clean the "tmp" dir, then run this
-    // plugin's task(s), then test the result.
-    //grunt.registerTask('test', ['clean', 'selenium_plugin', 'nodeunit']);
-
-    // By default, lint and run all tests.
-    //grunt.registerTask('default', ['jshint', 'test']);
-
-    grunt.registerTask('default', ['curl:download-selenium', 'curl:download-chromedriver', 'unzip:chrome']);
+    grunt.registerTask('stop_selenium', ['stopSelenium']);
 };
