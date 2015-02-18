@@ -15,19 +15,19 @@ module.exports = function(grunt) {
         curl: {
             'download-selenium': {
                 src: 'http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar',
-                dest: './lib/selenium-server-standalone-2.44.0.jar'
+                dest: require('path').resolve(__dirname, 'lib/selenium-server-standalone-2.44.0.jar')
             },
 
             'download-chromedriver': {
                 src: 'http://chromedriver.storage.googleapis.com/2.14/chromedriver_win32.zip',
-                dest: './lib/chromedriver_win32.zip'
+                dest: require('path').resolve(__dirname, 'lib/chromedriver_win32.zip')
             }
         },
 
         unzip: {
             'chrome': {
-                src: './lib/chromedriver_win32.zip',
-                dest: './lib/'
+                src: require('path').resolve(__dirname, 'lib/chromedriver_win32.zip'),
+                dest: require('path').resolve(__dirname, 'lib/')
             }
         },
 
