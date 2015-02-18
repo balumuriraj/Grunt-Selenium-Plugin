@@ -1,7 +1,7 @@
 {
   "name": "grunt-selenium-plugin",
   "description": "Grunt plugin for Selenium with Chrome driver",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/balumuriraj/Grunt-Selenium-Plugin",
   "author": {
     "name": "MohanRaj",
@@ -37,7 +37,7 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "grunt-curl": "^2.1.0",
-    "grunt-zip": "^0.16.2"
+    "download": "^4.0.0",
+    "q": "^1.1.2"
   }
 }
