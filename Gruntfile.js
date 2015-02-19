@@ -13,6 +13,12 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
 
+        startSelenium: {
+            options: {
+                browser: 'firefox'
+            }
+        }
+
     });
 
     // Actually load this plugin's task(s).
@@ -22,5 +28,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-curl');
     // Load in `grunt-zip`
     grunt.loadNpmTasks('grunt-zip');
+
+    grunt.registerTask('default', ['startSelenium']);
 
 };
