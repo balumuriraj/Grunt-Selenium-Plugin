@@ -187,10 +187,15 @@ function update_chrome_driver_details(){
 module.exports = function(grunt) {
 
     grunt.registerTask('startSelenium', 'Starts the Selenium Webdriver', function(){
-        var options = this.options({
-            host:'127.0.0.1',
-            port: 4444
-        });
+        var options = this.options();
+
+        if(options.host == null) {
+            options.host = '127.0.0.1';
+        }
+
+        if(options.port == null) {
+            options.port = 4444;
+        }
 
         // Tell Grunt this task is asynchronous.
         var done = this.async();

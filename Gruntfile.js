@@ -15,7 +15,11 @@ module.exports = function(grunt) {
 
         startSelenium: {
             options: {
-                browser: 'firefox'
+                host: 'localhost',
+                port: 4445,
+                browser: 'firefox',
+                version: '2.43',
+                subversion: '1'
             }
         }
 
