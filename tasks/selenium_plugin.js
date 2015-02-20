@@ -197,6 +197,10 @@ module.exports = function(grunt) {
             options.port = 4444;
         }
 
+        if(options.libpath != null){
+            LIBRARY_PATH = options.libpath;
+        }
+
         // Tell Grunt this task is asynchronous.
         var done = this.async();
 

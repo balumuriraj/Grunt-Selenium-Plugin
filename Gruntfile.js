@@ -19,7 +19,8 @@ module.exports = function(grunt) {
                 port: 4445,
                 browser: 'firefox',
                 version: '2.43',
-                subversion: '1'
+                subversion: '1',
+                libpath: 'downloads'
             }
         }
 

@@ -52,6 +52,9 @@ You can specify the selenium version, if you want to use a specific selenium ver
 #### subversion
 You can specify the selenium sub-version, on which you want to run the selenium. Default is 0. (In case if you dont understand it is the last digit of the selenium version. ex: subversion of 2.44.0 version is 0).
 
+#### version
+You can specify the path where your selenium and chromedriver downloads can be saved. The default is lib in your project root directory.
+
 ### Usage Examples
 Below is an example:
 
@@ -63,7 +66,8 @@ grunt.initConfig({
             port: 4445,
             browser: 'firefox',
             version: '2.43',
-            subversion: '1'
+            subversion: '1',
+            libpath: 'downloads'
         }
     }
 });
@@ -80,4 +84,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 I have used a similar approach as grunt-selenium-webdriver by levexis (https://github.com/levexis/grunt-selenium-webdriver). But with some major changes like chrome driver support and custom options.
 
 ## Release History
-The latest release 0.2.1 supports Windows, MAC and Linux OS as-well.
+All the releases >= 0.2.1 supports Windows, MAC and Linux OS as-well.
