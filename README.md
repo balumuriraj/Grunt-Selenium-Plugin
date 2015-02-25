@@ -52,7 +52,7 @@ You can specify the selenium version, if you want to use a specific selenium ver
 #### subversion
 You can specify the selenium sub-version, on which you want to run the selenium. Default is 0. (In case if you dont understand it is the last digit of the selenium version. ex: subversion of 2.44.0 version is 0).
 
-#### version
+#### libpath
 You can specify the path where your selenium and chromedriver downloads can be saved. The default is lib in your project root directory.
 
 ### Usage Examples
