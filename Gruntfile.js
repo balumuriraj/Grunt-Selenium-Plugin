@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             options: {
                 host: 'localhost',
                 port: 4445,
-                browser: 'firefox',
+                browser: 'chrome',
                 version: '2.43',
                 subversion: '1',
                 libpath: 'downloads'

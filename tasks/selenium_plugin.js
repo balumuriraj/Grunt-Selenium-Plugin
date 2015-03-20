@@ -199,6 +199,7 @@ module.exports = function(grunt) {
 
         if(options.libpath != null){
             LIBRARY_PATH = options.libpath;
+            chrome_driver_details.path = path.resolve(LIBRARY_PATH, 'chromedriver')
         }
 
         // Tell Grunt this task is asynchronous.
