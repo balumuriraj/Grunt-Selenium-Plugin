@@ -73,8 +73,10 @@ function startSelenium (next, options) {
         var errMsg;
         data = data.trim();
 
-        if ( data.indexOf( 'Started SocketListener' ) > -1 ) {
+        if ( data.indexOf( 'Started SocketListener' ) > -1 || // Older versions of Selenium server
+             data.indexOf( 'Selenium Server is up and running' ) > -1 ) {
             console.log('Selenium webdriver has started on ' + options.host + ':' + options.port);
+            
             started = true;
             if (typeof next === 'function') {
                 return next();
