@@ -143,8 +143,9 @@ function update_chrome_driver_details(){
         var req = http.get('http://chromedriver.storage.googleapis.com/LATEST_RELEASE', function(res) {
             res.setEncoding('utf8');
             res.on('data', function (chunk) {
-                console.log('Latest Release of Chrome driver is: ' + chunk);
-                chrome_driver_details.version = chunk;
+                var version = chunk.trim();
+                console.log('Latest Release of Chrome driver is: ' + version);
+                chrome_driver_details.version = version;
                 deferred.resolve();
             });
         });
