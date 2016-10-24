@@ -1,7 +1,7 @@
 {
   "name": "grunt-selenium-plugin",
   "description": "Grunt plugin for Selenium with Chrome driver",
-  "version": "0.2.33",
+  "version": "0.2.34",
   "homepage": "https://github.com/balumuriraj/Grunt-Selenium-Plugin",
   "author": {
     "name": "MohanRaj",

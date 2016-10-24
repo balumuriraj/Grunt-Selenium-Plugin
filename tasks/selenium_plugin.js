@@ -172,7 +172,7 @@ function update_chrome_driver_details(){
                 chrome_driver_details.url = chrome_driver_details.url + '/' + chrome_driver_details.version + '/' + chrome_driver_details.name + '_linux32.zip';
             }
         } else if(os_details.platform == 'darwin'){
-            chrome_driver_details.url = chrome_driver_details.url + '/' + chrome_driver_details.version + '/' + chrome_driver_details.name + '_mac32.zip';
+            chrome_driver_details.url = chrome_driver_details.url + '/' + chrome_driver_details.version + '/' + chrome_driver_details.name + '_mac64.zip';
         } else if(os_details.platform == 'win32'){
             chrome_driver_details.url = chrome_driver_details.url + '/' + chrome_driver_details.version + '/' + chrome_driver_details.name + '_win32.zip';
             chrome_driver_details.path = chrome_driver_details.path + '.exe';
