@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 host: 'localhost',
                 port: 4445,
                 browser: 'chrome',
-                version: '2.43',
+                version: '3.9',
                 subversion: '1',
                 libpath: 'downloads'
             }
@@ -34,6 +34,6 @@ module.exports = function(grunt) {
     // Load in `grunt-zip`
     grunt.loadNpmTasks('grunt-zip');
 
-    grunt.registerTask('default', ['startSelenium']);
+    grunt.registerTask('default', ['startSelenium', 'stopSelenium']);
 
 };
